@@ -1,0 +1,10 @@
+from site_scons.scons_hints import *
+from site_scons.env import get_environment
+
+env_sanity = get_environment("env_sanity")
+env_sanity = env_sanity.Clone()
+
+verbose = GetOption("verbose")
+
+sanity_file = File("sanity_file.txt")
+env_sanity.SanityTest(sanity_file, verbose)
